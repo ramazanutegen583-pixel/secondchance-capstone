@@ -16,6 +16,9 @@ jobs:
   test-and-build:
     name: Validate, import MongoDB, test and build
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: read
     services:
       mongodb:
         image: mongo:8.0
