@@ -1,0 +1,13 @@
+const fs = require('node:fs');
+const path = require('node:path');
+const root = path.resolve(__dirname, '..');
+const out = path.join(root, 'dist');
+fs.mkdirSync(path.join(out, 'data'), { recursive: true });
+for (const name of ['index.html', 'style.css', 'app.js']) fs.copyFileSync(path.join(root, 'secondChance-frontend/public', name), path.join(out, name));
+const data = JSON.parse(fs.readFileSync(path.join(root, 'secondChance-backend/util/import-mongo/secondChanceItems.json'), 'utf8')).docs;
+fs.writeFileSync(path.join(out, 'data/items.json'), JSON.stringify(data, null, 2));
+fs.mkdirSync(path.join(root, 'secondChance-frontend/public/data'), { recursive: true });
+fs.writeFileSync(path.join(root, 'secondChance-frontend/public/data/items.json'), JSON.stringify(data, null, 2));
+fs.cpSync(path.join(root, 'secondChance-backend/public/images'), path.join(out, 'images'), { recursive: true });
+fs.writeFileSync(path.join(out, '.nojekyll'), '');
+console.log('Built deployment landing page and sample catalog with ' + data.length + ' items.');

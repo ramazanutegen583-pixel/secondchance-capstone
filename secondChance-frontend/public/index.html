@@ -1,55 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8" />
-  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#000000" />
-  <meta name="description" content="Web site created using create-react-app" />
-  <!-- <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/static/home.css"> -->
-  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-  <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-  <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-  <title>React App</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SecondChance helps useful things find a new home. Explore the community sharing capstone project.">
+  <title>SecondChance — Good things, new beginnings</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
 </head>
-
 <body>
-  <noscript>You need to enable JavaScript to run this app.</noscript>
-  <div id="root"></div>
-  <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  <!-- Bootstrap JS, Popper.js, and jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    crossorigin="anonymous"></script>
+  <header class="header wrap">
+    <a class="brand" href="#/"><span class="brand-icon" aria-hidden="true">↻</span>SecondChance<span class="brand-dot">.</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#how-it-works">How it works</a>
+      <a href="#/items">Explore items</a>
+      <button class="button small" data-action="catalog">Get Started <span aria-hidden="true">↗</span></button>
+    </nav>
+  </header>
+  <main id="content">
+    <div id="landing">
+      <section class="hero wrap">
+        <div class="hero-copy">
+          <p class="eyebrow"><span aria-hidden="true">✳</span> A LITTLE LESS WASTE. A LOT MORE POSSIBILITY.</p>
+          <h1>Good things deserve a <em>second chance.</em></h1>
+          <p class="intro">A favorite chair. A well-loved bookshelf. Something you no longer need could be exactly what someone else is looking for.</p>
+          <button class="button" data-action="catalog">Get Started <span aria-hidden="true">↗</span></button>
+          <p class="hero-note">Find a new favorite. Give something a new beginning.</p>
+        </div>
+        <div class="hero-art">
+          <div class="image-main"><img src="images/couch2.jpeg" alt="Pre-loved couch ready for a new home"><span>PRE-LOVED. RE-LOVED.</span></div>
+          <div class="image-small"><img src="images/bookshelf3.jpeg" alt="Bookshelf from the sample catalog"></div>
+          <div class="round-note" aria-hidden="true">LESS<br>NEW.<br><strong>MORE<br>POSSIBLE.</strong></div>
+        </div>
+      </section>
+      <div class="manifesto"><div class="wrap"><span>GOOD FOR YOUR SPACE.</span><span aria-hidden="true">✳</span><span>BETTER FOR THE PLANET.</span><span aria-hidden="true">✳</span><span>BUILT AROUND COMMUNITY.</span></div></div>
+      <section class="how wrap" id="how-it-works">
+        <div class="section-heading"><p class="eyebrow">A SMALL CHANGE STARTS HERE</p><h2>New beginnings, made simple.</h2></div>
+        <div class="steps">
+          <article><span>01</span><h3>Find something useful</h3><p>Explore furniture, home essentials and more. Filter the catalog to find your next favorite.</p></article>
+          <article><span>02</span><h3>Look a little closer</h3><p>View an item's photos, condition and description to see whether it fits your needs.</p></article>
+          <article><span>03</span><h3>Keep good things going</h3><p>Sharing and reusing everyday objects starts with seeing the possibilities in what already exists.</p></article>
+        </div>
+      </section>
+      <section class="closing wrap"><div><p class="eyebrow">SOMETHING GOOD IS WAITING</p><h2>Your next find has a story.</h2></div><button class="button" data-action="catalog">Explore the catalog <span aria-hidden="true">↗</span></button></section>
+    </div>
+    <section id="catalog" class="wrap catalog" hidden>
+      <p class="eyebrow">FIND YOUR NEXT FAVORITE</p><div class="catalog-heading"><h1>Explore items<span>.</span></h1><button class="button small" id="account-button" hidden>My account</button></div>
+      <p class="catalog-note">Sample catalog from the IBM capstone dataset.</p>
+      <form id="search-form" class="filters">
+        <label>Search by name<input id="search-name" placeholder="Try bookshelf or lamp"></label>
+        <label>Category<select id="search-category"><option value="">All categories</option></select></label>
+        <label>Condition<select id="search-condition"><option value="">Any condition</option><option>New</option><option>Like New</option><option>Older</option></select></label>
+        <label>Maximum age (years)<input id="search-age" type="number" min="0" step="0.1" placeholder="Any age"></label>
+        <button class="button small" type="submit">Search</button>
+      </form>
+      <div class="catalog-toolbar"><p id="results-status" role="status"></p><button id="add-item-button" class="text-button" hidden>Add an item +</button></div>
+      <div id="item-grid" class="item-grid"></div>
+    </section>
+    <section id="detail" class="wrap detail" hidden></section>
+  </main>
+  <footer class="footer wrap"><a class="brand" href="#/">SecondChance<span class="brand-dot">.</span></a><p>Student capstone · Built by Ramazan Utegen</p><a href="https://github.com/ramazanutegen583-pixel/secondchance-capstone">View the project ↗</a></footer>
+  <dialog id="account-dialog"><button class="dialog-close" aria-label="Close">×</button><div id="account-content"></div></dialog>
+  <dialog id="item-dialog"><button class="dialog-close" aria-label="Close">×</button><h2>Give something a second chance</h2><form id="add-item-form"><label>Name<input name="name" required maxlength="120"></label><label>Category<input name="category" required maxlength="120"></label><label>Condition<select name="condition"><option>Like New</option><option>New</option><option>Older</option></select></label><label>Age in years<input name="age_years" type="number" min="0" step="0.1" value="0"></label><label>Description<textarea name="description" required maxlength="3000"></textarea></label><label>Photo (JPEG, PNG or WebP, up to 2 MB)<input name="file" type="file" accept="image/jpeg,image/png,image/webp"></label><button class="button" type="submit">Add item</button><p class="form-message" role="status"></p></form></dialog>
 </body>
-
 </html>
